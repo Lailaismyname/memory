@@ -25,3 +25,34 @@ body{
     width:100px;
     cursor: pointer;
 }
+/*---------------------- win scherm --------------------------------*/
+.end-game{
+    display: flex;
+    margin: 0px 140px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.end-game >button{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: larger;
+    text-shadow: 1px 1px steelblue;
+    letter-spacing: 1px;
+    border: none;
+    background: white;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.end-game > p{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: larger;
+    text-shadow: 1px 1px #333;
+    letter-spacing: 1px;    
+}
+/*-----------------------------------------------------------------------*/
