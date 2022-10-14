@@ -43,14 +43,19 @@ window.addEventListener('load', _=>{
     flipCardsBack(){
         this.checked = document.querySelectorAll('.checked');
         this.checked.forEach(item => {
-            item.src = 'img/eyes.png';
-            this.removeCheckedClass();
+            this.checked.forEach(item =>{
+                if(!item.classList.contains('guessed')){
+                    item.classList.remove('checked');
+                    item.src = 'img/eyes.png';
+                }
+            })
             console.log(item);
         });
     }
-    removeCheckedClass(){
-        this.checked.forEach(item =>{
-            item.classList.remove('checked');
+    removeClasses(){
+        this.checked = document.querySelectorAll('.checked');
+        this.checked.forEach(item=>{
+            item.classList.remove('guessed checked');
         })
     }
     flipCard(){
@@ -65,14 +70,15 @@ window.addEventListener('load', _=>{
                 if(this.clicks == 2){
                     if(e.target.src == this.prevGuess){
                         e.target.style.pointerEvents = 'none';
+                        e.target.classList.add('guessed');
                         document.getElementById(this.prevCardId).style.pointerEvents = 'none';
-                        this.removeCheckedClass();
+                        document.getElementById(this.prevCardId).classList.add('guessed');
                         this.guessed++;
                     }
                     else{
                         setTimeout(() => {
                             this.flipCardsBack();
-                        }, 2000);
+                        }, 1000);
                     }
                     this.clicks = 0;
                 }
@@ -82,6 +88,7 @@ window.addEventListener('load', _=>{
             else if(e.target.classList.contains('new-game')){
                 alert('skeet');
                 this.guessed = 0;
+                this.removeClasses();
                 this.clearGameBox();
                 this.memoryGame();
             }
@@ -103,4 +110,4 @@ window.addEventListener('load', _=>{
     memory.memoryGame();
 })
 
-//werkt grotendeels, alleen bij het terugdraaien zit er een bug in. 
+//werkt grotendeels, alleen bij nieuw spel draait ie de kaarten niet meer om. Zal wel aan de remove classes liggen?
