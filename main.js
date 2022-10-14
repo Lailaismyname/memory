@@ -1,5 +1,4 @@
-window.addEventListener('load', _=>{
-    
+window.addEventListener('load', _=>{ 
     class Memory{
         constructor(){
             //data
@@ -8,26 +7,22 @@ window.addEventListener('load', _=>{
             this.images = ['blik.png','cat.png','eenhoorn.png','kikker.png','robot.png','slang.png','uil.png','worm.png','blik.png','cat.png','eenhoorn.png','kikker.png','robot.png','slang.png','uil.png','worm.png'];
             this.currentCard = '';
             this.prevGuess = '';
-            this.currentGuess = '';
             this.prevCardId = '';
             this.clicks = 0;
             this.guessed = 0;
             this.checked = '';
         }
         //methods
-        //genereert de kaarten in het spelbox
     loadCardsToBox()  {
         for (let i = 0; i < 16; i++){
             this.gamebox.innerHTML += `<img src="img/eyes.png" class="card"  id="card${i}" value="${i}">`;
         }
     }
-    //wijs de img toe aan kaarten
     shuffleImages(){
         this.images.sort(function () {
                 return Math.random() - 0.5;
             });
     }
-    //print het winscherm
     printWinScreen() {
         this.gamebox.innerHTML = `<div class="end-game">
         <p>you win</p>
@@ -51,12 +46,6 @@ window.addEventListener('load', _=>{
             })
             console.log(item);
         });
-    }
-    removeClasses(){
-        this.checked = document.querySelectorAll('.checked');
-        this.checked.forEach(item=>{
-            item.classList.remove('guessed checked');
-        })
     }
     flipCard(){
         this.gamebox.addEventListener('click', (e)=>{
@@ -88,9 +77,10 @@ window.addEventListener('load', _=>{
             else if(e.target.classList.contains('new-game')){
                 alert('skeet');
                 this.guessed = 0;
-                this.removeClasses();
+                this.clicks = 0;
                 this.clearGameBox();
                 this.memoryGame();
+
             }
             if(this.guessed == 8){
                 this.printWinScreen();
