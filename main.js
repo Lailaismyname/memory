@@ -75,11 +75,10 @@ window.addEventListener('load', _=>{
                 this.prevCardId = e.target.id;
             }
             else if(e.target.classList.contains('new-game')){
-                alert('skeet');
                 this.guessed = 0;
                 this.clicks = 0;
                 this.clearGameBox();
-                this.memoryGame();
+                this.loadCardsToBox();
 
             }
             if(this.guessed == 8){
@@ -100,4 +99,5 @@ window.addEventListener('load', _=>{
     memory.memoryGame();
 })
 
-//werkt grotendeels, alleen bij nieuw spel draait ie de kaarten niet meer om. Zal wel aan de remove classes liggen?
+//enige probleem is door die settimeout kan het zo zijn dat er te snel op een nieuwe knop word gedrukt en dan loopt het allemaal scheef.
+//misschien kan ik een manier vinden om events pas te laten afspele nadat die settimeout met flipcardsback is voltooid?
