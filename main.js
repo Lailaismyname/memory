@@ -44,21 +44,25 @@ window.addEventListener('load', _=>{
                     item.src = 'img/eyes.png';
                 }
             })
-            console.log(item);
         });
     }
     flipCard(){
         this.gamebox.addEventListener('click', (e)=>{
             if(e.target.classList.contains('card')){
+                //sla waarde van kaart op in var
                 this.currentCard = e.target.getAttribute('value');
+                //sla id op in var
                 this.currentGuessId =  e.target.id;
+                //voeg checked class toe. checked is om bij te houden op welke er geklikt is. 
                 e.target.classList.add('checked');
+                //wijs de afbeelding toe aan kaarten
                 this.setCardImgSrc();
                 e.target.src = `${this.label}`;
                 this.clicks++;
                 if(this.clicks == 2){
                     if(e.target.src == this.prevGuess){
                         e.target.style.pointerEvents = 'none';
+                        //guessed class is om het totaal aantal geraden kaarten aan te duiden.
                         e.target.classList.add('guessed');
                         document.getElementById(this.prevCardId).style.pointerEvents = 'none';
                         document.getElementById(this.prevCardId).classList.add('guessed');
@@ -79,7 +83,6 @@ window.addEventListener('load', _=>{
                 this.clicks = 0;
                 this.clearGameBox();
                 this.loadCardsToBox();
-
             }
             if(this.guessed == 8){
                 this.printWinScreen();
