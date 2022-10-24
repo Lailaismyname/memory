@@ -75,9 +75,7 @@ window.addEventListener('load', _=>{
             //if cards are not equal
             else{
                 //flip cards back after a second
-                setTimeout(() => {
-                    this.flipCardsBack();
-                }, 1000);
+                    this.delayedFlipCardsBack();
             }
             //reset clickcounter
             this.clicks = 0;
@@ -96,6 +94,11 @@ window.addEventListener('load', _=>{
                 }
             })
         });
+    }
+    delayedFlipCardsBack(){
+        setTimeout(_=>{
+            this.flipCardsBack();
+        },1000)
     }
     cardEvents(){
         this.gamebox.addEventListener('click', (e)=>{
@@ -126,4 +129,5 @@ window.addEventListener('load', _=>{
 })
 
 //enige probleem is door die settimeout kan het zo zijn dat er te snel op een nieuwe knop word gedrukt en dan loopt het allemaal scheef.
-//callback --> promises --> async 
+//callback --> promises --> async . waar moet ik de async aan toevoegen. 
+//
