@@ -13,7 +13,7 @@ window.addEventListener('load', _=>{
             this.checked = '';
         }
         //methods
-    loadCardsToBox()  {
+    loadCardsToBox(){
         for (let i = 0; i < 16; i++){
             this.gamebox.innerHTML += `<img src="img/eyes.png" class="card"  id="card${i}" value="${i}">`;
         }
@@ -34,7 +34,7 @@ window.addEventListener('load', _=>{
                 return Math.random() - 0.5;
             });
     }
-    printWinScreen() {
+    printWinScreen(){
         this.gamebox.innerHTML = `<div class="end-game">
         <p>you win</p>
         <button class="new-game">play again</button>
@@ -97,7 +97,7 @@ window.addEventListener('load', _=>{
             })
         });
     }
-    flipCard(){
+    cardEvents(){
         this.gamebox.addEventListener('click', (e)=>{
             if(e.target.classList.contains('card')){
                 this.compareCards(e);
@@ -115,7 +115,7 @@ window.addEventListener('load', _=>{
     memoryGame() {
         this.shuffleImages();
         this.loadCardsToBox();
-        this.flipCard();
+        this.cardEvents();
     }
     }
     
