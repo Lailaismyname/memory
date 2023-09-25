@@ -127,7 +127,3 @@ window.addEventListener('load', _=>{
     let memory = new Memory();
     memory.memoryGame();
 })
-
-//enige probleem is door die settimeout kan het zo zijn dat er te snel op een nieuwe knop word gedrukt en dan loopt het allemaal scheef.
-//callback --> promises --> async . waar moet ik de async aan toevoegen. 
-//
