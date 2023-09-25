@@ -1,4 +1,6 @@
-Hi, this is a <a href="https://lailaismyname.github.io/memory/">memory</a> game i made. 
+# Memory
+This is a memory game i made. 
+Live version <a href="https://lailaismyname.github.io/memory/">Here</a>
 
 ![ScreenShot](https://raw.githubusercontent.com/Lailaismyname/memory/master/memory.png)
 
